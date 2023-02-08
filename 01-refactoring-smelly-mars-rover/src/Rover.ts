@@ -3,15 +3,19 @@
 import {Direction} from "./Direction";
 
 export class Rover {
-    
+
     private y: number;
     private x: number;
     private directionType: Direction;
 
     constructor(x: number, y: number, direction: string) {
+        this.setCoordinates(x, y);
+        this.setDirection(direction);
+    }
+
+    private setCoordinates(x: number, y: number) {
         this.x = x;
         this.y = y;
-        this.setDirection(direction);
     }
 
     private setDirection(direction: string) {
@@ -57,13 +61,13 @@ export class Rover {
                 let displacement = displacement1;
 
                 if (this.directionType.isFacingNorth()) {
-                    this.y += displacement;
+                    this.setCoordinates(this.x, this.y + displacement);
                 } else if (this.directionType.isFacingSouth()) {
-                    this.y -= displacement;
+                    this.setCoordinates(this.x, this.y - displacement);
                 } else if (this.directionType.isFacingWest()) {
-                    this.x -= displacement;
+                    this.setCoordinates(this.x - displacement, this.y);
                 } else {
-                    this.x += displacement;
+                    this.setCoordinates(this.x + displacement, this.y);
                 }
             }
         }
