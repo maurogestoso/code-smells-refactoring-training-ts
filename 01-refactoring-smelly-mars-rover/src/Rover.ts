@@ -4,9 +4,7 @@ import {Direction} from "./Direction";
 import {Coordinates} from "./Coordinates";
 
 export class Rover {
-
-    private y: number;
-    private x: number;
+    
     private directionType: Direction;
     private coordinates: Coordinates;
 
@@ -16,8 +14,6 @@ export class Rover {
     }
 
     private setCoordinates(x: number, y: number) {
-        this.x = x;
-        this.y = y;
         this.coordinates = new Coordinates(x, y)
     }
 
@@ -64,13 +60,13 @@ export class Rover {
                 let displacement = displacement1;
 
                 if (this.directionType.isFacingNorth()) {
-                    this.setCoordinates(this.x, this.y + displacement);
+                    this.setCoordinates(this.coordinates.getX(), this.coordinates.getY() + displacement);
                 } else if (this.directionType.isFacingSouth()) {
-                    this.setCoordinates(this.x, this.y - displacement);
+                    this.setCoordinates(this.coordinates.getX(), this.coordinates.getY() - displacement);
                 } else if (this.directionType.isFacingWest()) {
-                    this.setCoordinates(this.x - displacement, this.y);
+                    this.setCoordinates(this.coordinates.getX() - displacement, this.coordinates.getY());
                 } else {
-                    this.setCoordinates(this.x + displacement, this.y);
+                    this.setCoordinates(this.coordinates.getX() + displacement, this.coordinates.getY());
                 }
             }
         }
