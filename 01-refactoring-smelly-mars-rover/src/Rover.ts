@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export class Rover {
 
     private direction: string;
@@ -14,33 +16,29 @@ export class Rover {
         for (let i = 0; i < commandsSequence.length; ++i) {
             const command = commandsSequence.substring(i, i + 1);
 
-            if (command === "l" || command === "r") {
+            if (command === "l") {
 
-                // Rotate Rover
+                // Rotate Rover left
                 if (this.direction === "N") {
-                    if (command === "r") {
-                        this.direction = "E";
-                    } else {
-                        this.direction = "W";
-                    }
+                    this.direction = "W";
                 } else if (this.direction === "S") {
-                    if (command === "r") {
-                        this.direction = "W";
-                    } else {
-                        this.direction = "E";
-                    }
+                    this.direction = "E";
                 } else if (this.direction === "W") {
-                    if (command === "r") {
-                        this.direction = "N";
-                    } else {
-                        this.direction = "S";
-                    }
+                    this.direction = "S";
                 } else {
-                    if (command === "r") {
-                        this.direction = "S";
-                    } else {
-                        this.direction = "N";
-                    }
+                    this.direction = "N";
+                }
+            } else if (command === "r") {
+
+                // Rotate Rover right
+                if (this.direction === "N") {
+                    this.direction = "E";
+                } else if (this.direction === "S") {
+                    this.direction = "W";
+                } else if (this.direction === "W") {
+                    this.direction = "N";
+                } else {
+                    this.direction = "S";
                 }
             } else {
 
