@@ -27,11 +27,11 @@ export class Rover {
             if (command === "l") {
 
                 // Rotate Rover left
-                if (this.direction === "N") {
+                if (this.directionType.isFacingNorth()) {
                     this.setDirection("W");
-                } else if (this.direction === "S") {
+                } else if (this.directionType.isFacingSouth()) {
                     this.setDirection("E");
-                } else if (this.direction === "W") {
+                } else if (this.directionType.isFacingWest()) {
                     this.setDirection("S");
                 } else {
                     this.setDirection("N");
@@ -39,11 +39,11 @@ export class Rover {
             } else if (command === "r") {
 
                 // Rotate Rover right
-                if (this.direction === "N") {
+                if (this.directionType.isFacingNorth()) {
                     this.setDirection("E");
-                } else if (this.direction === "S") {
+                } else if (this.directionType.isFacingSouth()) {
                     this.setDirection("W");
-                } else if (this.direction === "W") {
+                } else if (this.directionType.isFacingWest()) {
                     this.setDirection("N");
                 } else {
                     this.setDirection("S");
@@ -58,11 +58,11 @@ export class Rover {
                 }
                 let displacement = displacement1;
 
-                if (this.direction === "N") {
+                if (this.directionType.isFacingNorth()) {
                     this.y += displacement;
-                } else if (this.direction === "S") {
+                } else if (this.directionType.isFacingSouth()) {
                     this.y -= displacement;
-                } else if (this.direction === "W") {
+                } else if (this.directionType.isFacingWest()) {
                     this.x -= displacement;
                 } else {
                     this.x += displacement;
@@ -70,5 +70,4 @@ export class Rover {
             }
         }
     }
-
 }

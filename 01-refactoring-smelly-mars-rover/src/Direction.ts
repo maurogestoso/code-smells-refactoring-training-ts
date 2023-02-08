@@ -3,4 +3,15 @@ export class Direction {
 
     }
 
+    isFacingNorth() {
+        return this.direction === "N";
+    }
+
+    isFacingSouth() {
+        return this.direction === "S";
+    }
+
+    isFacingWest() {
+        return this.direction === "W";
+    }
 }
