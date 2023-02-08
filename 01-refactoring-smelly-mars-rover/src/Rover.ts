@@ -1,10 +1,13 @@
 // @ts-nocheck
 
+import {Direction} from "./Direction";
+
 export class Rover {
 
     private direction: string;
     private y: number;
     private x: number;
+    private directionType: Direction;
 
     constructor(x: number, y: number, direction: string) {
         this.x = x;
@@ -14,6 +17,7 @@ export class Rover {
 
     private setDirection(direction: string) {
         this.direction = direction;
+        this.directionType = new Direction(direction);
     }
 
     public receive(commandsSequence: string) {
