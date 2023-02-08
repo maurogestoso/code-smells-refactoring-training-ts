@@ -1,12 +1,14 @@
 // @ts-nocheck
 
 import {Direction} from "./Direction";
+import {Coordinates} from "./Coordinates";
 
 export class Rover {
 
     private y: number;
     private x: number;
     private directionType: Direction;
+    private coordinates: Coordinates;
 
     constructor(x: number, y: number, direction: string) {
         this.setCoordinates(x, y);
@@ -16,6 +18,7 @@ export class Rover {
     private setCoordinates(x: number, y: number) {
         this.x = x;
         this.y = y;
+        this.coordinates = new Coordinates(x, y)
     }
 
     private setDirection(direction: string) {
