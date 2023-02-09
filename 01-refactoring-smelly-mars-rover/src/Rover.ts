@@ -29,17 +29,13 @@ export class Rover {
         }
         let displacement = displacement1;
 
-        if (this.directionType.isFacingNorth()) {
-          this.coordinates = this.coordinates.moveAlongY(displacement);
-        } else if (this.directionType.isFacingSouth()) {
-          this.coordinates = this.coordinates.moveAlongY(-displacement);
-        } else if (this.directionType.isFacingWest()) {
-          this.coordinates = this.coordinates.moveAlongX(-displacement);
-        } else {
-          this.coordinates = this.coordinates.moveAlongX(displacement);
-        }
+        this.move(displacement);
       }
     }
+  }
+
+  private move(displacement: number) {
+    this.coordinates = this.directionType.move(this.coordinates, displacement);
   }
 
   private rotateRight() {

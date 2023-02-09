@@ -1,3 +1,5 @@
+import { Coordinates } from "./Coordinates";
+
 export abstract class Direction {
   constructor(private direction: string) {}
 
@@ -27,6 +29,18 @@ export abstract class Direction {
   abstract rotateLeft(): Direction;
 
   abstract rotateRight(): Direction;
+
+  move(coordinates: Coordinates, displacement: number): Coordinates {
+    if (this.isFacingNorth()) {
+      return coordinates.moveAlongY(displacement);
+    } else if (this.isFacingSouth()) {
+      return coordinates.moveAlongY(-displacement);
+    } else if (this.isFacingWest()) {
+      return coordinates.moveAlongX(-displacement);
+    } else {
+      return coordinates.moveAlongX(displacement);
+    }
+  }
 }
 
 class North extends Direction {
