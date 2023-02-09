@@ -25,6 +25,18 @@ export abstract class Direction {
   }
 
   abstract rotateLeft(): Direction;
+
+  rotateRight() {
+    if (this.isFacingNorth()) {
+      return Direction.create("E");
+    } else if (this.isFacingSouth()) {
+      return Direction.create("W");
+    } else if (this.isFacingWest()) {
+      return Direction.create("N");
+    } else {
+      return Direction.create("S");
+    }
+  }
 }
 
 class North extends Direction {
