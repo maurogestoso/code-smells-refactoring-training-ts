@@ -17,16 +17,7 @@ export class Rover {
       const command = commandsSequence.substring(i, i + 1);
 
       if (command === "l") {
-        // Rotate Rover left
-        if (this.directionType.isFacingNorth()) {
-          this.directionType = Direction.create("W");
-        } else if (this.directionType.isFacingSouth()) {
-          this.directionType = Direction.create("E");
-        } else if (this.directionType.isFacingWest()) {
-          this.directionType = Direction.create("S");
-        } else {
-          this.directionType = Direction.create("N");
-        }
+        this.rotateLeft();
       } else if (command === "r") {
         // Rotate Rover right
         if (this.directionType.isFacingNorth()) {
@@ -58,5 +49,9 @@ export class Rover {
         }
       }
     }
+  }
+
+  private rotateLeft() {
+    this.directionType = this.directionType.rotateLeft();
   }
 }
